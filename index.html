@@ -176,6 +176,119 @@
             border-top: 15px solid #ddd;
         }
 
+        .search-section {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            background-color: #a53c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #8a2e2e;
+        }
+
+        .search-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .result-section {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .vehicle-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .info-value {
+            font-size: 16px;
+            color: #333;
+            padding: 8px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .error-message {
+            color: #a53c3c;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
         .separator {
             height: 20px;
             background: linear-gradient(to right, #ccc 0%, #ccc 100%);
@@ -234,6 +347,10 @@
             .container {
                 margin: 0;
             }
+            
+            .vehicle-info {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -280,6 +397,58 @@
             </div>
         </div>
 
+        <!-- Sección de búsqueda -->
+        <div class="search-section">
+            <div class="search-title">VERIFICAR PERMISO VEHICULAR</div>
+            <div class="search-form">
+                <div class="input-group">
+                    <label for="folio">NÚMERO DE FOLIO:</label>
+                    <input type="text" id="folio" placeholder="Ejemplo: ABC123" maxlength="10">
+                </div>
+                <button type="button" class="search-btn" onclick="searchVehicle()">BUSCAR VEHÍCULO</button>
+                <div class="error-message" id="errorMessage">Folio no encontrado. Verifique el número e intente nuevamente.</div>
+            </div>
+        </div>
+
+        <!-- Sección de resultados -->
+        <div class="result-section" id="resultSection">
+            <div class="result-title">INFORMACIÓN DEL VEHÍCULO</div>
+            <div class="vehicle-info">
+                <div class="info-item">
+                    <span class="info-label">NOMBRE DEL PROPIETARIO:</span>
+                    <span class="info-value" id="ownerName">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">FOLIO:</span>
+                    <span class="info-value" id="folioResult">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">COLOR:</span>
+                    <span class="info-value" id="color">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">NÚMERO DE SERIE:</span>
+                    <span class="info-value" id="serialNumber">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">NÚMERO DE MOTOR:</span>
+                    <span class="info-value" id="engineNumber">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AÑO:</span>
+                    <span class="info-value" id="year">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">MARCA:</span>
+                    <span class="info-value" id="brand">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">MODELO:</span>
+                    <span class="info-value" id="model">-</span>
+                </div>
+            </div>
+        </div>
+
         <div class="separator"></div>
 
         <div class="footer">
@@ -299,6 +468,60 @@
 </body>
 
 <script>
+// Base de datos simulada de vehículos
+const vehicleDatabase = {
+    "GNJ-FC-617": {
+        ownerName: "FERNANDO CARRILLO",
+        folio: "GNJ-FC-617",
+        color: "CARBONO",
+        serialNumber: "3SCK5FLD351032276",
+        engineNumber: "HECHO EN MEXICO",
+        year: "2025",
+        brand: "ITLIKA",
+        model: "250 Z"
+    },
+    "DEF456": {
+        ownerName: "MARÍA GARCÍA LÓPEZ",
+        folio: "DEF456",
+        color: "AZUL",
+        serialNumber: "2FMDK3GC5BBA12345",
+        engineNumber: "EcoBoost56789",
+        year: "2019",
+        brand: "FORD",
+        model: "ESCAPE"
+    },
+    "GHI789": {
+        ownerName: "CARLOS RODRÍGUEZ MARTÍNEZ",
+        folio: "GHI789",
+        color: "BLANCO",
+        serialNumber: "3VWDP7AJ7DM123456",
+        engineNumber: "EA88898765",
+        year: "2021",
+        brand: "VOLKSWAGEN",
+        model: "JETTA"
+    },
+    "JKL012": {
+        ownerName: "ANA SÁNCHEZ RAMÍREZ",
+        folio: "JKL012",
+        color: "NEGRO",
+        serialNumber: "JM1BK32F781234567",
+        engineNumber: "SKYACTIV1234",
+        year: "2018",
+        brand: "MAZDA",
+        model: "3"
+    },
+    "MNO345": {
+        ownerName: "LUIS FLORES CASTILLO",
+        folio: "MNO345",
+        color: "GRIS",
+        serialNumber: "5YJSA1E21HF123456",
+        engineNumber: "ElectricMotor987",
+        year: "2022",
+        brand: "TESLA",
+        model: "MODEL 3"
+    }
+};
+
 function toggleMenu() {
     const dropdown = document.getElementById('dropdownMenu');
     dropdown.classList.toggle('show');
@@ -311,6 +534,52 @@ document.addEventListener('click', function(event) {
     
     if (!menuBtn.contains(event.target)) {
         dropdown.classList.remove('show');
+    }
+});
+
+// Función para buscar vehículo por folio
+function searchVehicle() {
+    const folioInput = document.getElementById('folio');
+    const folio = folioInput.value.trim().toUpperCase();
+    const resultSection = document.getElementById('resultSection');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Ocultar resultados y mensajes de error previos
+    resultSection.style.display = 'none';
+    errorMessage.style.display = 'none';
+    
+    // Validar que se haya ingresado un folio
+    if (!folio) {
+        errorMessage.textContent = "Por favor, ingrese un número de folio.";
+        errorMessage.style.display = 'block';
+        return;
+    }
+    
+    // Buscar el vehículo en la base de datos
+    if (vehicleDatabase[folio]) {
+        // Mostrar los datos del vehículo
+        document.getElementById('ownerName').textContent = vehicleDatabase[folio].ownerName;
+        document.getElementById('folioResult').textContent = vehicleDatabase[folio].folio;
+        document.getElementById('color').textContent = vehicleDatabase[folio].color;
+        document.getElementById('serialNumber').textContent = vehicleDatabase[folio].serialNumber;
+        document.getElementById('engineNumber').textContent = vehicleDatabase[folio].engineNumber;
+        document.getElementById('year').textContent = vehicleDatabase[folio].year;
+        document.getElementById('brand').textContent = vehicleDatabase[folio].brand;
+        document.getElementById('model').textContent = vehicleDatabase[folio].model;
+        
+        // Mostrar la sección de resultados
+        resultSection.style.display = 'block';
+    } else {
+        // Mostrar mensaje de error si no se encuentra el folio
+        errorMessage.textContent = "Folio no encontrado. Verifique el número e intente nuevamente.";
+        errorMessage.style.display = 'block';
+    }
+}
+
+// Permitir buscar presionando Enter
+document.getElementById('folio').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        searchVehicle();
     }
 });
 </script>
