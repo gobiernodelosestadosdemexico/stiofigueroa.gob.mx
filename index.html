@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VERIFICACIÓN DE PERMISOS - Huitzuco</title>
+    <title>VERIFICACIÓN DE PERMISOS - Gobiernos de los estados unidos mexicanos</title>
     <style>
         * {
             margin: 0;
@@ -349,156 +349,6 @@
             margin-top: 20px;
         }
 
-        /* Nuevos estilos para el candado y formularios */
-        .lock-icon {
-            font-size: 20px;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.3s;
-        }
-
-        .lock-icon:hover {
-            color: #333;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-title {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
-        }
-
-        .modal-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .modal-input {
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .modal-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .modal-button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            flex: 1;
-        }
-
-        .modal-button.primary {
-            background-color: #a53c3c;
-            color: white;
-        }
-
-        .modal-button.secondary {
-            background-color: #ddd;
-            color: #333;
-        }
-
-        .modal-button:hover {
-            opacity: 0.9;
-        }
-
-        .add-vehicle-form {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .add-vehicle-form.show {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .form-buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .form-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .form-button.primary {
-            background-color: #a53c3c;
-            color: white;
-        }
-
-        .form-button.secondary {
-            background-color: #ddd;
-            color: #333;
-        }
-
         @media (max-width: 480px) {
             .title h1 {
                 font-size: 24px;
@@ -511,20 +361,15 @@
             .permit-info {
                 grid-template-columns: 1fr;
             }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="mobile-icons">
-            <span class="lock-icon" id="lock-icon">🔒</span>
             <span>🏠</span>
         </div>
-        <div class="url-bar">sfigueroa.gob.mx</div>
+        <div class="url-bar">https://gobiernodetransitonacional.gob.mx</div>
         <div class="mobile-icons">
             <span>+</span>
             <span>📱</span>
@@ -564,7 +409,7 @@
             <div class="certificate-badge">
                 <div class="badge" id="certificate-badge">
                     <!-- Reemplaza con tu URL de imagen del certificado -->
-                    <img src="https://media.istockphoto.com/id/1094780808/es/vector/casilla-de-verificaci%C3%B3n-aprobaci%C3%B3n-s%C3%ADmbolo-un-c%C3%ADrculo-dibujado-a-mano-vector-verde-muestra.jpg?s=612x612&w=0&k=20&c=cFT-tz3jlslQT-33tgyxCQzZLns9ZSa5carlDO4gsYI=" alt="Certificado" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" onerror="this.style.display='none'; this.parentElement.innerHTML='✓<br>Certificado';">
+                    <img src="https://i.pinimg.com/736x/87/26/2d/87262d46a57cd8c4df716defeb66ecce.jpg" alt="Certificado" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" onerror="this.style.display='none'; this.parentElement.innerHTML='✓<br>Certificado';">
                 </div>
             </div>
 
@@ -632,77 +477,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Formulario para agregar vehículos -->
-            <div class="add-vehicle-form" id="add-vehicle-form">
-                <h2>Agregar Nuevo Vehículo</h2>
-                <form id="vehicle-form">
-                    <div class="form-group">
-                        <label class="form-label" for="new-folio">Folio *</label>
-                        <input type="text" class="form-input" id="new-folio" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="new-permit-type">Tipo de Permiso *</label>
-                        <input type="text" class="form-input" id="new-permit-type" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="new-start-date">Fecha de Inicio *</label>
-                            <input type="text" class="form-input" id="new-start-date" placeholder="DD/MM/AAAA" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="new-end-date">Fecha de Terminación *</label>
-                            <input type="text" class="form-input" id="new-end-date" placeholder="DD/MM/AAAA" required>
-                        </div>
-                    </div>
-                    
-                    <h3 style="margin-top: 20px; margin-bottom: 15px;">Datos del Vehículo</h3>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="new-brand">Marca *</label>
-                            <input type="text" class="form-input" id="new-brand" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="new-model">Modelo *</label>
-                            <input type="text" class="form-input" id="new-model" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="new-year">Año *</label>
-                            <input type="text" class="form-input" id="new-year" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="new-color">Color *</label>
-                            <input type="text" class="form-input" id="new-color" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="new-serial">Número de Serie *</label>
-                        <input type="text" class="form-input" id="new-serial" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="new-motor">Número de Motor *</label>
-                        <input type="text" class="form-input" id="new-motor" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="new-owner">Propietario *</label>
-                        <input type="text" class="form-input" id="new-owner" required>
-                    </div>
-                    
-                    <div class="form-buttons">
-                        <button type="button" class="form-button secondary" id="cancel-button">Cancelar</button>
-                        <button type="submit" class="form-button primary">Guardar Vehículo</button>
-                    </div>
-                </form>
-            </div>
         </div>
 
         <div class="separator"></div>
@@ -721,112 +495,87 @@
             <div class="bottom-bar"></div>
         </div>
     </div>
-
-    <!-- Modal de autenticación -->
-    <div class="modal" id="auth-modal">
-        <div class="modal-content">
-            <h2 class="modal-title">Acceso Administrativo</h2>
-            <form class="modal-form" id="auth-form">
-                <input type="text" class="modal-input" id="username" placeholder="Usuario" required>
-                <input type="password" class="modal-input" id="password" placeholder="Contraseña" required>
-                <div class="modal-buttons">
-                    <button type="button" class="modal-button secondary" id="cancel-auth">Cancelar</button>
-                    <button type="submit" class="modal-button primary">Ingresar</button>
-                </div>
-            </form>
-        </div>
-    </div>
 </body>
 
 <script>
-// Credenciales de administrador (en un caso real, esto debería estar en el servidor)
-const adminCredentials = {
-    username: "admin",
-    password: "admin123"
-};
-
-// Estado de autenticación
-let isAuthenticated = false;
-
-// Función para obtener datos del localStorage
-function getPermisosDatabase() {
-    const storedData = localStorage.getItem('permisosDatabase');
-    if (storedData) {
-        return JSON.parse(storedData);
-    } else {
-        // Datos iniciales si no hay nada en localStorage
-        return {
-            "ML-JA-6172": {
-                type: "Permiso Provisional para Circular sin Placas por 30 dias.",
-                startDate: "30/09/2025",
-                endDate: "30/10/2025",
-                vehicle: {
-                    brand: "CARABELA",
-                    model: "GATOR SPORT 125",
-                    year: "2025",
-                    color: "PLATA",
-                    folio: "ML-JA-6172",
-                    serial: "3EFBBLAUXS1018543",
-                    motor: "HECHO EN MEXICO",
-                    owner: "JORGE STWAR ARENALES ROMERO"
-                }
-            },
-            "SP-VP-6170": {
-                type: "Permiso Provisional para Circular sin Placas por 30 dias",
-                startDate: "30/09/2025",
-                endDate: "30/10/2025",
-                vehicle: {
-                    brand: "ITALIKA",
-                    model: "ZW125",
-                    year: "2020",
-                    color: "AZUL/NEGRO",
-                    folio: "SP-VP-6170",
-                    serial: "3SCPZWDE8L1017601",
-                    motor: "HECHO EN MEXICO",
-                    owner: "VALENTIN PEREZ RAMIREZ"
-                }
-            },
-            "XYZ789012": {
-                type: "Permiso de transporte público",
-                startDate: "01/01/2024",
-                endDate: "31/12/2024",
-                vehicle: {
-                    brand: "Toyota",
-                    model: "Corolla",
-                    year: "2020",
-                    color: "Gris",
-                    folio: "XYZ789012",
-                    serial: "2T1BU4EE6CC123456",
-                    motor: "2T1BU4EE6CC123456",
-                    owner: "María González López"
-                }
-            },
-            "DEF456789": {
-                type: "Permiso para carga pesada",
-                startDate: "10/05/2024",
-                endDate: "10/05/2025",
-                vehicle: {
-                    brand: "Volvo",
-                    model: "FH16",
-                    year: "2023",
-                    color: "Azul",
-                    folio: "DEF456789",
-                    serial: "YV2E4C3A0JB123456",
-                    motor: "D13K460",
-                    owner: "Transportes del Norte S.A. de C.V."
-                }
-            }
-        };
+// Base de datos simulada con múltiples permisos
+const permisosDatabase = {
+    "ML-JA-6172": {
+        type: "Permiso Provisional para Circular sin Placas por 30 dias.",
+        startDate: "30/09/2025",
+        endDate: "30/10/2025",
+        vehicle: {
+            brand: "CARABELA",
+            model: "GATOR SPORT 125",
+            year: "2025",
+            color: "PLATA",
+            folio: "ML-JA-6172",
+            serial: "3EFBBLAUXS1018543",
+            motor: "HECHO EN MEXICO",
+            owner: "JORGE STWAR ARENALES ROMERO"
+        }
+    },
+    "SP-VP-6170": {
+        type: "Permiso Provisional para Circular sin Placas por 30 dias",
+        startDate: "30/09/2025",
+        endDate: "30/10/2025",
+        vehicle: {
+            brand: "ITALIKA",
+            model: "ZW125",
+            year: "2020",
+            color: "AZUL/NEGRO",
+            folio: "SP-VP-6170",
+            serial: "3SCPZWDE8L1017601",
+            motor: "HECHO EN MEXICO",
+            owner: "VALENTIN PEREZ RAMIREZ"
+        }
+    },
+    "XYZ789012": {
+        type: "Permiso de transporte público",
+        startDate: "01/01/2024",
+        endDate: "31/12/2024",
+        vehicle: {
+            brand: "Toyota",
+            model: "Corolla",
+            year: "2020",
+            color: "Gris",
+            folio: "XYZ789012",
+            serial: "2T1BU4EE6CC123456",
+            motor: "2T1BU4EE6CC123456",
+            owner: "María González López"
+        }
+    },
+    "DEF456789": {
+        type: "Permiso para carga pesada",
+        startDate: "10/05/2024",
+        endDate: "10/05/2025",
+        vehicle: {
+            brand: "Volvo",
+            model: "FH16",
+            year: "2023",
+            color: "Azul",
+            folio: "DEF456789",
+            serial: "YV2E4C3A0JB123456",
+            motor: "D13K460",
+            owner: "Transportes del Norte S.A. de C.V."
+        }
+    },
+        "EM-ML-4312": {
+        type: "Permiso provisional por 30 dias para el estado de Morelos.",
+        startDate: "03/10/2025",
+        endDate: "03/11/2025",
+        vehicle: {
+            brand: "VOLKSWAGEN",
+            model: "T CROSS",
+            year: "2025",
+            color: "GRIS",
+            folio: "EM-ML-4312",
+            serial: "9BWBL6BF3L4041892",
+            motor: "HECHO EN MEXICO",
+            owner: "EDUARDO MEZA URIBE"
+        }
     }
-}
-
-// Función para guardar datos en el localStorage
-function savePermisosDatabase(data) {
-    localStorage.setItem('permisosDatabase', JSON.stringify(data));
-}
-
-// Inicializar la base de datos
-let permisosDatabase = getPermisosDatabase();
+};
 
 function toggleMenu() {
     const dropdown = document.getElementById('dropdownMenu');
@@ -851,12 +600,10 @@ document.getElementById('search-form').addEventListener('submit', function(e) {
     const badge = document.getElementById('certificate-badge');
     const permitDetails = document.getElementById('permit-details');
     const errorMessage = document.getElementById('error-message');
-    const addVehicleForm = document.getElementById('add-vehicle-form');
     
-    // Ocultar mensajes previos y formulario
+    // Ocultar mensajes previos
     permitDetails.classList.remove('show');
     errorMessage.classList.remove('show');
-    addVehicleForm.classList.remove('show');
     
     // Resetear badge
     badge.classList.remove('valid', 'invalid');
@@ -903,132 +650,6 @@ document.getElementById('search-form').addEventListener('submit', function(e) {
             errorMessage.classList.add('show');
         }
     }
-});
-
-// Mostrar modal de autenticación al hacer clic en el candado
-document.getElementById('lock-icon').addEventListener('click', function() {
-    const authModal = document.getElementById('auth-modal');
-    authModal.classList.add('show');
-});
-
-// Cerrar modal de autenticación
-document.getElementById('cancel-auth').addEventListener('click', function() {
-    const authModal = document.getElementById('auth-modal');
-    authModal.classList.remove('show');
-});
-
-// Manejar autenticación
-document.getElementById('auth-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const authModal = document.getElementById('auth-modal');
-    
-    if (username === adminCredentials.username && password === adminCredentials.password) {
-        isAuthenticated = true;
-        authModal.classList.remove('show');
-        
-        // Mostrar formulario para agregar vehículos
-        const addVehicleForm = document.getElementById('add-vehicle-form');
-        addVehicleForm.classList.add('show');
-        
-        // Actualizar título principal
-        document.getElementById('main-title').textContent = 'Agregar nuevo vehículo al sistema';
-        
-        // Ocultar otros elementos
-        document.getElementById('permit-details').classList.remove('show');
-        document.getElementById('error-message').classList.remove('show');
-        document.getElementById('certificate-badge').classList.remove('valid', 'invalid');
-        
-        // Cambiar el icono del candado a abierto
-        document.getElementById('lock-icon').textContent = '🔓';
-    } else {
-        alert('Usuario o contraseña incorrectos');
-    }
-});
-
-// Manejar cancelación del formulario de vehículo
-document.getElementById('cancel-button').addEventListener('click', function() {
-    const addVehicleForm = document.getElementById('add-vehicle-form');
-    addVehicleForm.classList.remove('show');
-    
-    // Restaurar título principal
-    document.getElementById('main-title').textContent = 'Ingresa tu número de folio para verificar';
-    
-    // Cambiar el icono del candado a cerrado
-    document.getElementById('lock-icon').textContent = '🔒';
-    
-    // Limpiar formulario
-    document.getElementById('vehicle-form').reset();
-    
-    isAuthenticated = false;
-});
-
-// Manejar envío del formulario de vehículo
-document.getElementById('vehicle-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (!isAuthenticated) {
-        alert('No tienes permisos para realizar esta acción');
-        return;
-    }
-    
-    // Obtener datos del formulario
-    const folio = document.getElementById('new-folio').value;
-    const permitType = document.getElementById('new-permit-type').value;
-    const startDate = document.getElementById('new-start-date').value;
-    const endDate = document.getElementById('new-end-date').value;
-    const brand = document.getElementById('new-brand').value;
-    const model = document.getElementById('new-model').value;
-    const year = document.getElementById('new-year').value;
-    const color = document.getElementById('new-color').value;
-    const serial = document.getElementById('new-serial').value;
-    const motor = document.getElementById('new-motor').value;
-    const owner = document.getElementById('new-owner').value;
-    
-    // Verificar si el folio ya existe
-    if (permisosDatabase[folio]) {
-        if (!confirm('El folio ya existe. ¿Deseas sobrescribir los datos?')) {
-            return;
-        }
-    }
-    
-    // Agregar a la base de datos
-    permisosDatabase[folio] = {
-        type: permitType,
-        startDate: startDate,
-        endDate: endDate,
-        vehicle: {
-            brand: brand,
-            model: model,
-            year: year,
-            color: color,
-            folio: folio,
-            serial: serial,
-            motor: motor,
-            owner: owner
-        }
-    };
-    
-    // Guardar en localStorage
-    savePermisosDatabase(permisosDatabase);
-    
-    alert('Vehículo agregado correctamente al sistema');
-    
-    // Limpiar formulario
-    document.getElementById('vehicle-form').reset();
-    
-    // Ocultar formulario
-    document.getElementById('add-vehicle-form').classList.remove('show');
-    
-    // Restaurar título principal
-    document.getElementById('main-title').textContent = 'Ingresa tu número de folio para verificar';
-    
-    // Cambiar el icono del candado a cerrado
-    document.getElementById('lock-icon').textContent = '🔒';
-    
-    isAuthenticated = false;
 });
 </script>
 
